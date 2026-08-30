@@ -1,0 +1,22 @@
+/* === Информация о треке === */
+.track-info {
+  text-align: center;
+  min-height: 60px;
+  padding: 10px 0;
+  -webkit-app-region: no-drag;
+}
+
+.track-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-primary);
+}
+
+.track-artist {
+  font-size: 14px;
+  color: var(--text-secondary);
+}

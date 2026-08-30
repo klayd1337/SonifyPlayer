@@ -1,0 +1,50 @@
+/* Адаптивные стили */
+
+@media (max-width: 768px) {
+  .player {
+    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+  }
+
+  .visualizer {
+    height: 60px;
+  }
+
+  .controls {
+    gap: var(--spacing-xl);
+  }
+
+  .control-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .play-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* Адаптивность для слайдера громкости */
+  .volume-slider-wrapper {
+    min-width: 120px;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .volume-slider-horizontal {
+    width: 100px;
+  }
+  
+  .notification {
+    width: 95%;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .settings-panel {
+    width: 280px;
+    right: -300px;
+  }
+
+  .settings-panel.open {
+    right: 0;
+  }
+}

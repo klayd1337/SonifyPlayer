@@ -1,0 +1,56 @@
+/* === ВИЗУАЛИЗАТОР === */
+.visualizer-container {
+  margin: 15px 0;
+  padding: 20px;
+  background: var(--glass);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: none;
+  -webkit-app-region: no-drag;
+}
+
+.visualizer-container.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.visualizer {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 15px;
+}
+
+.visualizer-bar {
+  width: 5px;
+  background: linear-gradient(to top, var(--primary), var(--primary-dark));
+  border-radius: 3px;
+  transition: height 0.1s;
+  min-height: 2px;
+}
+
+.visualizer-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.visualizer-slider {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  outline: none;
+}
+
+.visualizer-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: 2px solid var(--surface);
+}

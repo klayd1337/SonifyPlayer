@@ -1,0 +1,42 @@
+/* === Кнопки управления === */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  -webkit-app-region: no-drag;
+}
+
+.control-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.play-btn {
+  width: 56px;
+  height: 56px;
+  background: var(--primary);
+  color: white;
+  font-size: 20px;
+}
+
+.play-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.08);
+}

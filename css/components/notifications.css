@@ -1,0 +1,63 @@
+/* === УВЕДОМЛЕНИЯ === */
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  display: none;
+  z-index: 3000;
+  animation: slideDown 0.3s ease;
+  max-width: 400px;
+  width: auto;
+  min-width: 200px;
+}
+
+.notification.show {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.notification-icon {
+  font-size: 16px;
+  color: var(--primary);
+}
+
+#notificationText {
+  font-size: 14px;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-left: 10px;
+}
+
+.notification-close:hover {
+  color: var(--text-primary);
+  transform: scale(1.1);
+}

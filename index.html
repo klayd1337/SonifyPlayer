@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desktop Audio Player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="player">
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+          <div class="loader"></div>
+          <div class="loading-text" id="loadingText">Загрузка...</div>
+          <div class="loading-progress">
+            <div class="loading-bar" id="loadingBar"></div>
+          </div>
+        </div>
+
+        <div class="floating-controls">
+          <button
+            class="floating-btn"
+            id="quickLikedBtn"
+            title="Быстрая загрузка 'Мне нравится'"
+          >
+            <i class="fas fa-heart"></i>
+            <span class="floating-badge" id="likedCount">0</span>
+          </button>
+          <button
+            class="floating-btn"
+            id="quickPlaylistsBtn"
+            title="Мои плейлисты"
+          >
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Шапка с кнопками -->
+      <div class="header">
+        <div class="title">
+          <i class="fas fa-music"></i>
+          <span>Desktop Music</span>
+        </div>
+        <div class="window-controls">
+          <button class="window-btn" id="minimizeBtn" title="Свернуть">
+            <i class="fas fa-minus"></i>
+          </button>
+          <button class="window-btn" id="settingsBtn" title="Настройки">
+            <i class="fas fa-cog"></i>
+          </button>
+          <button class="window-btn close-btn" id="closeBtn" title="Закрыть">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Панель настроек -->
+      <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+          <div class="settings-title">
+            <i class="fas fa-cog"></i>
+            Настройки
+          </div>
+          <button class="settings-close" id="closeSettings">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="settings-group">
+          <label class="settings-label">Качество звука</label>
+          <select class="settings-select" id="audioQuality">
+            <option value="low">Низкое (128kbps)</option>
+            <option value="medium" selected>Среднее (192kbps)</option>
+            <option value="high">Высокое (320kbps)</option>
+          </select>
+        </div>
+
+        <div class="settings-group">
+          <label class="settings-label">Внешний вид</label>
+          <div class="settings-row">
+            <button class="settings-btn" id="themeBtn">
+              <i class="fas fa-moon"></i>
+              <span>Темная тема</span>
+            </button>
+            <button class="settings-btn" id="transparencyBtn">
+              <i class="fas fa-adjust"></i>
+              <span>Прозрачность</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label class="settings-label">Визуализатор</label>
+          <div class="settings-row">
+            <button class="settings-btn" id="visualizerToggleBtn">
+              <i class="fas fa-wave-square"></i>
+              <span>Включить</span>
+            </button>
+            <button class="settings-btn" id="visualizerModeBtn">
+              <i class="fas fa-random"></i>
+              <span>Режим</span>
+            </button>
+          </div>
+          <div class="settings-slider">
+            <span>Чувствительность</span>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="50"
+              id="visualizerSensitivity"
+            />
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label class="settings-label">Прозрачность</label>
+          <div class="settings-slider">
+            <span>Уровень</span>
+            <input
+              type="range"
+              min="10"
+              max="100"
+              value="100"
+              id="transparencySlider"
+            />
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label class="settings-label">Автозапуск</label>
+          <div class="settings-checkbox">
+            <input type="checkbox" id="autoStart" class="settings-input" />
+            <label for="autoStart">Запускать с системой</label>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label class="settings-label">API ключ (если требуется)</label>
+          <input
+            type="password"
+            class="settings-input"
+            id="apiKey"
+            placeholder="Введите API ключ"
+          />
+        </div>
+
+        <div class="settings-footer">
+          <button class="settings-action-btn" id="loadMyWaveBtn">
+            <i class="fas fa-satellite-dish"></i>
+            "Моя волна"
+          </button>
+          <button class="settings-action-btn" id="loadLikedBtn">
+            <i class="fas fa-heart"></i>
+            "Мне нравится"
+          </button>
+          <button class="settings-action-btn" id="saveSettings">
+            <i class="fas fa-save"></i>
+            Сохранить настройки
+          </button>
+        </div>
+      </div>
+
+      <!-- Поиск музыки -->
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-input"
+          id="searchInput"
+          placeholder="Поиск музыки..."
+          autocomplete="off"
+        />
+        <div class="tracks-list" id="tracksList"></div>
+      </div>
+
+      <!-- Информация о текущем треке -->
+      <div class="track-info">
+        <div class="track-title" id="trackTitle">
+          Плейлист "Мне нравится" в процессе загрузки
+        </div>
+        <div class="track-artist" id="trackArtist">—</div>
+      </div>
+
+      <!-- Прогресс воспроизведения -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="totalTime">0:00</span>
+        </div>
+      </div>
+
+      <!-- Визуализатор -->
+      <div class="visualizer-container" id="visualizerContainer">
+        <div class="visualizer" id="visualizer"></div>
+        <div class="visualizer-controls">
+          <button
+            class="icon-btn small"
+            id="visualizerModeBtn2"
+            title="Сменить режим визуализатора"
+          >
+            <i class="fas fa-random"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Кнопки управления -->
+      <div class="controls">
+        <button class="control-btn" id="prevBtn" title="Предыдущий">
+          <i class="fas fa-step-backward"></i>
+        </button>
+        <button class="control-btn play-btn" id="playBtn" title="Воспроизвести">
+          <i class="fas fa-play" id="playIcon"></i>
+        </button>
+        <button class="control-btn" id="nextBtn" title="Следующий">
+          <i class="fas fa-step-forward"></i>
+        </button>
+      </div>
+
+      <!-- Громкость -->
+      <div class="volume-control">
+        <button class="volume-btn" id="volumeBtn" title="Громкость">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="70"
+          class="volume-slider"
+          id="volumeSlider"
+        />
+      </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div class="notification" id="notification">
+      <div id="notificationText"></div>
+    </div>
+
+    <script src="js/player.js"></script>
+    <script src="js/ui.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+/* === ИМПОРТ ВСЕХ СТИЛЕЙ ===*/
+
+/* Базовые стили */
+@import url('base/variables.css');
+@import url('base/reset.css');
+
+/* Темы */
+@import url(base/themes.css);
+
+/* Компоненты */
+@import url('components/player.css');
+@import url('components/header.css');
+@import url('components/search.css');
+@import url('components/tracks_info.css');
+@import url('components/progress_bar.css');
+@import url('components/controls.css');
+@import url('components/volume.css');
+@import url('components/visualizer.css');
+@import url('components/settings.css');
+@import url('components/overlays.css');
+@import url('components/floating_controls.css');
+@import url('components/tracks_list.css');
+
+/* Утилиты */
+@import url('utils/animations.css');
+@import url('utils/scrollbar.css');
+@import url('utils/responsive.css');
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif, Roboto, BlinkMacSytstemFont;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Класс размера текста */
+.text-xs {
+    font-size: 12px;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-base {
+    font-size: 16px;
+}
+
+.text-lg {
+    font-size: 18px;
+}
+
+.text-xl {
+    font-size: 20px;
+}
+
+/* Класс жирности текста */
+.font-light {
+    font-weight: 300;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}

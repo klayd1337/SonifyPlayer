@@ -1,0 +1,153 @@
+/* Громкость - минималистичный слайдер рядом с иконкой */
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  -webkit-app-region: no-drag;
+  position: relative;
+}
+
+.volume-btn {
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.volume-btn:hover {
+  color: var(--primary);
+  background: var(--glass);
+}
+
+.volume-btn.active {
+  color: var(--primary);
+  background: var(--glass);
+}
+
+#volumeSlider {
+  cursor: pointer;
+}
+
+/* Слайдер громкости (скрыт по умолчанию) */
+.volume-slider-wrapper {
+  position: absolute;
+  bottom: calc(100% + var(--spacing-md));
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--surface);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: none;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: all var(--transition-normal) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  min-width: 140px;
+}
+
+.volume-slider-wrapper.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.volume-slider-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Горизонтальный слайдер */
+.volume-slider-horizontal {
+  width: 120px;
+  height: 6px;
+  background: var(--glass);
+  border-radius: var(--radius-xs);
+  outline: none;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Значение громкости над слайдером */
+.volume-value-display {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+  min-width: 30px;
+  display: inline-block;
+  background: var(--glass);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* Для WebKit браузеров (Chrome, Safari, Edge) */
+.volume-slider-horizontal::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  cursor: pointer;
+  border: 2px solid var(--surface);
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.volume-slider-horizontal::-webkit-slider-thumb:hover {
+  background: var(--primary-dark);
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(99, 102, 241, 0.3);
+}
+
+.volume-slider-horizontal::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background: var(--glass);
+  border-radius: var(--radius-xs);
+  border: none;
+}
+
+/* Для Firefox */
+.volume-slider-horizontal::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  cursor: pointer;
+  border: 2px solid var(--surface);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.volume-slider-horizontal::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  background: var(--glass);
+  border-radius: var(--radius-xs);
+  border: none;
+}
+
+.volume-slider-wrapper.show {
+  animation: slideDownFade 0.2s ease-out;
+}

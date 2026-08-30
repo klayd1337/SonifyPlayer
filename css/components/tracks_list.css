@@ -1,0 +1,75 @@
+/* === СПИСОК НАЙДЕННЫХ ТРЕКОВ === */
+.tracks-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border-radius: 0 0 12px 12px;
+  border: 1px solid var(--border);
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  z-index: 100;
+  margin-top: 1px;
+}
+
+.tracks-list.show {
+  display: block;
+}
+
+.track-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
+}
+
+.track-item:hover {
+  background: var(--glass);
+}
+
+.track-item.active {
+  background: var(--primary);
+}
+
+.track-item.active .track-item-title,
+.track-item.active .track-item-artist {
+  color: white;
+}
+
+.track-item-cover {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: var(--glass);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.track-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-item-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-item-artist {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
