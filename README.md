@@ -1,14 +1,10 @@
 # 🎵 Yandex Music Desktop Player
 
 **Элегантный десктопный плеер для Яндекс.Музыки, созданный на Electron + FastAPI**
+
 [![Python](https://img.shields.io/badge/Python-3.9+-3776ab.svg)](https://www.python.org/)
 [![Electron](https://img.shields.io/badge/Electron-28.0.0-47848f.svg)](https://www.electronjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104.0-009688.svg)](https://fastapi.tiangolo.com/)
-
-https://img.shields.io/badge/Electron-28.0.0-47848f.svg
-https://img.shields.io/badge/Python-3.9+-3776ab.svg
-https://img.shields.io/badge/FastAPI-0.104.0-009688.svg
-
 
 ---
 
