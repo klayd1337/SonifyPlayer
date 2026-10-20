@@ -150,6 +150,11 @@ yandex-music-player/
 
 ---
 
+### 📄 Лицензия
+Распространяется под лицензией MIT. См. файл ([LICENSE](https://github.com/klayd1337/SonifyPlayer/blob/main/LICENSE)) для подробностей.
+
+---
+
 ### 🙏 Благодарности
 - MarshalX — за неофициальную библиотеку Яндекс.Музыки
 - Команде Electron и FastAPI — за отличные инструменты
