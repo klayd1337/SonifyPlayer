@@ -124,9 +124,10 @@ npm start
 ---
 
 ### 📁 Структура проекта
+```
 yandex-music-player/
-├── assets/                  # Иконки, изображения
-├── backend/                 # Python-сервер
+├── assets/                 # Иконки, изображения
+├── backend/                # Python-сервер
 │   ├── api_server.py       # FastAPI приложение
 │   ├── config.py           # Токен Яндекс.Музыки
 │   └── requirements.txt    # Python-зависимости
@@ -144,6 +145,7 @@ yandex-music-player/
 ├── main.js                 # Точка входа Electron
 ├── package.json
 └── README.md
+```
 
 ---
 
